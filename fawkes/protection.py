@@ -133,7 +133,7 @@ class Fawkes(object):
                 continue
             p_img = final_images[i]
             path = image_paths[i]
-            file_name = "{}_cloaked.{}".format(".".join(path.split(".")[:-1]), format)
+            file_name = "{}_afr.{}".format(".".join(path.split(".")[:-1]), format)
             dump_image(p_img, file_name, format=format)
 
         print("Done!")
@@ -187,7 +187,7 @@ def main(*argv):
         args.format = 'jpeg'
 
     image_paths = glob.glob(os.path.join(args.directory, "*"))
-    image_paths = [path for path in image_paths if "_cloaked" not in path.split("/")[-1]]
+    image_paths = [path for path in image_paths if "_afr" not in path.split("/")[-1]]
 
     protector = Fawkes(args.feature_extractor, args.gpu, args.batch_size, mode=args.mode)
 
